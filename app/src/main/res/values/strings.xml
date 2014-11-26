@@ -2,7 +2,8 @@
 <resources>
 
     <string name="app_name">Voicemail Indicator</string>
-    <string name="hello_world">Hello world!</string>
+    <string name="no_notifications">No notifications</string>
+
     <string name="action_settings">Settings</string>
 
 </resources>
