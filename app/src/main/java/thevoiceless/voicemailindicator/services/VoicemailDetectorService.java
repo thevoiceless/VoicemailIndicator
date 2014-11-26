@@ -5,6 +5,8 @@ import android.service.notification.NotificationListenerService;
 import android.service.notification.StatusBarNotification;
 import android.util.Log;
 
+import java.util.Arrays;
+
 public class VoicemailDetectorService extends NotificationListenerService {
 
     private static final String TAG = VoicemailDetectorService.class.getSimpleName();
@@ -20,9 +22,24 @@ public class VoicemailDetectorService extends NotificationListenerService {
     }
 
     @Override
+    public void onDestroy() {
+        Log.i(TAG, "onDestroy");
+        super.onDestroy();
+    }
+
+    @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
         Log.i(TAG, "onStartCommand");
-        return super.onStartCommand(intent, flags, startId);
+        // NOTE: User must allow app to access notifications!
+        StatusBarNotification[] notifications = getActiveNotifications();
+        Log.i(TAG, String.format("notifications: %s", Arrays.toString(notifications)));
+        return START_STICKY;
+    }
+
+    @Override
+    public void onListenerConnected() {
+        Log.i(TAG, "onListenerConnected");
+        super.onListenerConnected();
     }
 
     @Override
