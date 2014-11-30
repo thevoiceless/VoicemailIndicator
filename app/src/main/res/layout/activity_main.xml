@@ -5,11 +5,58 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/start_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onStartServiceClicked"
+            android:text="Start service"/>
+
+        <Button
+            android:id="@+id/stop_service"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onStopServiceClicked"
+            android:text="Stop service"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/add_state_listener"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onAddListenerClicked"
+            android:text="Add listener"/>
+
+        <Button
+            android:id="@+id/remove_state_listener"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:onClick="onRemoveListenerClicked"
+            android:text="Remove listener"/>
+
+    </LinearLayout>
+
     <Button
         android:id="@+id/trigger_notification"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/trigger_notificaiton"/>
+        android:onClick="onTriggerNotificationClicked"
+        android:text="Trigger notification"/>
 
     <FrameLayout
         android:layout_width="match_parent"
@@ -20,7 +67,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/no_notifications"
+            android:text="No notifications"
             android:visibility="gone"/>
 
         <ListView
